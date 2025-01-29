@@ -21,3 +21,10 @@ def unit_list(request, subject_id):
         'subject': subject,
         'progress_data': progress_data,
     })
+
+def mark_completed(request, unit_id):
+    unit = get_object_or_404(Unit, id=unit_id)
+    progress, created = Progress.objects.get_or_create(unit=unit)
+    progress.completed = True
+    progress.save()
+    return render(request, 'tracker/mark_completed.html', {'unit': unit})
