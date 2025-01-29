@@ -1,0 +1,6 @@
+<h1>Subjects</h1>
+<ul>
+    {% for subject in subjects %}
+        <li><a href="{% url 'unit_list' subject.id %}">{{ subject.name }}</a></li>
+    {% endfor %}
+</ul>

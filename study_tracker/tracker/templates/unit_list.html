@@ -1,0 +1,12 @@
+<h1>{{ subject.name }}</h1>
+<ul>
+    {% for data in progress_data %}
+        <li>
+            {{ data.unit.name }} - {{ data.unit.allocated_marks }} marks
+            <form method="post" action="{% url 'mark_completed' data.unit.id %}">
+                {% csrf_token %}
+                <input type="checkbox" name="completed" {% if data.completed %}checked{% endif %} onchange="this.form.submit()">
+            </form>
+        </li>
+    {% endfor %}
+</ul>
