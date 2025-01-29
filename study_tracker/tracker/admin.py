@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import Subject, Unit, Progress
 
-# Register your models here.
+admin.site.register(Subject)
+admin.site.register(Unit)
+admin.site.register(Progress)
